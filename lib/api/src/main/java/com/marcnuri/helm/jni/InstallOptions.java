@@ -7,6 +7,7 @@ import com.sun.jna.Structure;
   "generateName",
   "nameTemplate",
   "chart",
+    "version",
   "namespace",
   "createNamespace",
   "description",
@@ -32,6 +33,7 @@ public class InstallOptions extends Structure {
   public int generateName;
   public String nameTemplate;
   public String chart;
+  public String version;
   public String namespace;
   public int createNamespace;
   public String description;
@@ -56,6 +58,7 @@ public class InstallOptions extends Structure {
     int  generateName,
     String nameTemplate,
     String chart,
+    String version,
     String namespace,
     int createNamespace,
     String description,
@@ -79,6 +82,7 @@ public class InstallOptions extends Structure {
     this.generateName = generateName;
     this.nameTemplate = nameTemplate;
     this.chart = chart;
+    this.version = version;
     this.namespace = namespace;
     this.createNamespace = createNamespace;
     this.description = description;

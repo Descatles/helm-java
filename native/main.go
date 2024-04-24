@@ -29,6 +29,7 @@ struct InstallOptions {
 	int   generateName;
 	char* nameTemplate;
 	char* chart;
+	char* version;
 	char* namespace;
 	int   createNamespace;
 	char* description;
@@ -280,6 +281,7 @@ func Install(options *C.struct_InstallOptions) C.Result {
 			GenerateName:          options.generateName == 1,
 			NameTemplate:          C.GoString(options.nameTemplate),
 			Chart:                 C.GoString(options.chart),
+			Version:               C.GoString(options.version),
 			Namespace:             C.GoString(options.namespace),
 			CreateNamespace:       options.createNamespace == 1,
 			Description:           C.GoString(options.description),

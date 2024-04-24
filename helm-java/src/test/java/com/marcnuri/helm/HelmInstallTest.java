@@ -1,5 +1,6 @@
 package com.marcnuri.helm;
 
+import java.nio.file.Paths;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -218,5 +219,25 @@ class HelmInstallTest {
 //    }
   }
 
+  @Test
+  void withKubeConfigInstall(){
+    Path path = Paths.get("D:/WorkSpace/helm-java/kube.config");
+    Release result = Helm.install("oci://deployacrdev.azurecr.io/charts/asa/asa").withName("test").withVersion("1.1.1")
+        .withNamespace("asa-system")
+        .createNamespace()
+        .withKubeConfig(path)
+        .waitReady().call();
+    System.out.println(result.getOutput());
+  }
 
+  @Test
+  void withKubeConfigUpgrade(){
+    Path path = Paths.get("D:/WorkSpace/helm-java/kube.config");
+    Release result = Helm.upgrade("oci://deployacrdev.azurecr.io/charts/asa/asa").withName("test").withVersion("1.1.1")
+        .withNamespace("asa-system")
+        .createNamespace()
+        .withKubeConfig(path)
+        .waitReady().call();
+    System.out.println(result.getOutput());
+  }
 }

@@ -14,6 +14,7 @@ public class UpgradeCommand extends HelmCommand<Release> {
 
   private String name;
   private String chart;
+  //private String version;
   private String namespace;
   private boolean install;
   private boolean force;

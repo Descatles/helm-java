@@ -16,6 +16,7 @@ public class InstallCommand extends HelmCommand<Release> {
   private boolean generateName;
   private String nameTemplate;
   private String chart;
+  private String version;
   private String namespace;
   private boolean createNamespace;
   private String description;
@@ -52,6 +53,7 @@ public class InstallCommand extends HelmCommand<Release> {
       toInt(generateName),
       nameTemplate,
       chart,
+      version,
       namespace,
       toInt(createNamespace),
       description,
@@ -102,6 +104,11 @@ public class InstallCommand extends HelmCommand<Release> {
    */
   public InstallCommand withNameTemplate(String nameTemplate) {
     this.nameTemplate = nameTemplate;
+    return this;
+  }
+
+  public InstallCommand withVersion(String version) {
+    this.version = version;
     return this;
   }
 

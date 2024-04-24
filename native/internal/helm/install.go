@@ -20,6 +20,7 @@ type InstallOptions struct {
 	GenerateName          bool
 	NameTemplate          string
 	Chart                 string
+	Version               string
 	Namespace             string
 	CreateNamespace       bool
 	Description           string
@@ -75,6 +76,7 @@ func Install(options *InstallOptions) (string, error) {
 		chartReference = options.Chart
 	}
 	client.ReleaseName = name
+	client.Version = options.Version
 	client.Namespace = options.Namespace
 	client.CreateNamespace = options.CreateNamespace
 	client.Description = options.Description
